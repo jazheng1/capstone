@@ -12,18 +12,6 @@ let knex = Knex(dbConfig[process.env.NODE_ENV]);
 Model.knex(knex);
 let Chart = require('./models/chart');
 
-// async function importData(data) {
-//   return await Chart.query().insertGraph(data.map((chartData) => {
-//     return {
-//       state: covidData.state,
-//       positive: covidData.positive,
-//       negative: covidData.negative,
-//     };
-//   }));
-
-//   await knex.destroy();
-// }
-
 async function importData(userFile) {
   let text = fs.readFileSync(userFile, 'utf-8')
   let arr = text.split('\n');
@@ -43,8 +31,8 @@ async function importData(userFile) {
     return {
       handle: info.labels,
       data: info.data,
-    }
-  }))
+    };
+  }));
 
     await knex.destroy();
 }
