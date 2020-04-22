@@ -13,29 +13,15 @@ Model.knex(knex);
 let Chart = require('./models/chart');
 
 async function importData(userFile) {
-  let text = fs.readFileSync(userFile, 'utf-8')
-  let arr = text.split('\n');
-    let dataObj = [];
-    let headers = arr[0].split(',');
-    for(let i = 1; i < arr.length; i++) {
-      let rowData = arr[i].split(',');
-      let obj = {};
-      for(let j = 0; j < rowData.length; j++) {
-         obj[headers[j].trim()] = rowData[j].trim();
-      }
-      dataObj.push(obj);
-    }
-    let chartData = { data: dataObj, labels: headers };
+  let content = fs.readFileSync(userFile, 'utf-8')
 
-  return await Chart.query().insertGraph(chartData.map((info) => {
-    return {
-      handle: info.labels,
-      data: info.data,
-    };
-  }));
+  return await Chart.query().insertGraph({
+    data: content
+  })
 
     await knex.destroy();
 }
+
 
 
 importData("./test.csv");

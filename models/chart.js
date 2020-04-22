@@ -13,7 +13,7 @@ class Chart extends Model {
   }
 
   static get tableName() {
-    return 'chart';
+    return 'csvdata';
   }
 
   static get jsonSchema() {
