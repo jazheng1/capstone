@@ -1,0 +1,43 @@
+<input type="file">
+
+<div class="container">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+   let myChart = document.getElementById('myChart').getContext('2d');
+
+
+    let massPopChart = new Chart(myChart, {
+      type: 'bar',
+      data: {
+        labels: {{ labels }},
+        datasets: [{
+          label:'test data',
+          data: [
+            {{ data }}
+          ],
+          backgroundColor: ['red', 'green', 'blue', 'purple', 'yellow', 'brown'],
+          borderWidth: 1,
+          borderColor: 'grey',
+          hoverBorderWidth: 3,
+          hoverBorderColor: 'black',
+        }],
+      },
+      options: {
+        title: {
+          display: true,
+          text: 'Sample',
+          fontSize: 25,
+        },
+        legend: {
+          // display: false,
+          position: 'right',
+          labels: {
+            fontColor: 'black',
+          }
+
+        }
+      },
+    })
+</script>
