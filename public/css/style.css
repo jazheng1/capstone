@@ -1,0 +1,23 @@
+.logo h1 {
+  font-size: 150px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  position: relative;
+  bottom: 2em;
+}
+
+.fileForm {
+  position: relative;
+  top: 5em;
+  text-align: center;
+}
+
+.hint {
+  text-align: center;
+  color: cornflowerblue;
+  font-size: 15px;
+  padding-top: 1em;
+}

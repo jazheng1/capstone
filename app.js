@@ -5,6 +5,7 @@ let createError = require('http-errors');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let express = require('express');
+let exphbs = require('express-hbs')
 
 let app = express();
 
@@ -24,6 +25,7 @@ app.inDevelopment = () => app.get('env') === 'development';
 // Tell Express to look in views/ to find our view templates
 // and to use the Handlebars (hbs) to render them.
 app.set('views', app.root('views'));
+
 app.set('view engine', 'hbs');
 
 // Put static files like stylesheets in public/

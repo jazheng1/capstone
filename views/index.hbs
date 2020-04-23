@@ -1,47 +1,9 @@
-<input type="file">
-
-<div class="container">
-  <canvas id="myChart"></canvas>
-</div>
-<div>
-  {{ csv }}
+<div class="logo">
+  <h1 style="font-size: 150px; text-align: center;">ChartIt</h1>
 </div>
 
-{{!--
-<script>
-   let myChart = document.getElementById('myChart').getContext('2d');
-
-
-    let massPopChart = new Chart(myChart, {
-      type: 'bar',
-      data: {
-        labels: {{ labels }},
-        datasets: [{
-          label:'test data',
-          data: [
-            {{ data }}
-          ],
-          backgroundColor: ['red', 'green', 'blue', 'purple', 'yellow', 'brown'],
-          borderWidth: 1,
-          borderColor: 'grey',
-          hoverBorderWidth: 3,
-          hoverBorderColor: 'black',
-        }],
-      },
-      options: {
-        title: {
-          display: true,
-          text: 'Sample',
-          fontSize: 25,
-        },
-        legend: {
-          // display: false,
-          position: 'right',
-          labels: {
-            fontColor: 'black',
-          }
-
-        }
-      },
-    })
-</script> --}}
+<form class='fileForm' action="/" method="POST" enctype="multipart/form-data" style="position: relative; top: 5em; text-align: center">
+  <input type="file" name="file" class= 'chooseFile'>
+  <input type="submit" class="btn btn-dark" type="button" value="Upload">
+  <p class="hint" style="text-align: center; color: cornflowerblue; font-size: 15px; padding-top: 1em">Press upload to generate your graph</p>
+</form>

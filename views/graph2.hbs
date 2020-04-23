@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <title>ChartIt</title>
+</head>
+<body>
+  <div>
+  <svg width="500" height="800" class="bar-chart"></svg>
+</div>
+
+
+
+<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+<script>
+  let data = {
+  labels: {{ xAxis }},
+  series: [
+    [1, 4, 3, 7, 5, 10, 3, 4, 8, 10, 6, 8]
+  ]
+};
+
+let options = {
+  seriesBarDistance: 10
+};
+
+let responsiveOptions = [
+  ['screen and (max-width: 640px)', {
+    seriesBarDistance: 5,
+    axisX: {
+      labelInterpolationFnc: function (value) {
+        return value[0];
+      }
+    }
+  }]
+];
+
+new Chartist.Bar('.ct-chart', data, options, responsiveOptions);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<div class="chart-container" style="position: relative; height:40vh; width:80vw">
+  <a href="/">Make Another Graph</a>
+  <canvas id="chart"></canvas>
+  <table>
+    <tr>
+      {{#each headers}}
+        <th>{{this}}</th>
+      {{/each}}
+    </tr>
+    {{#each csv}}
+      <tr>
+        {{#each this}}
+          <td>{{this}}</td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </table>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+<script>
+   var ctx = document.getElementById('chart').getContext('2d');
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+        labels: ['1880', '1881'],
+        datasets: [{
+            label: 'Temperature',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [
+              -0.16,
+              -0.08
+            ]
+        }]
+    },
+    options: {
+        title: {
+          display: true,
+          text: 'Graph',
+          fontSize: 25,
+        },
+        legend: {
+          // display: false,
+          position: 'right',
+          labels: {
+            fontColor: 'black',
+          }
+        }
+      },
+
+});
+</script>
